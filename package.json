@@ -1,0 +1,25 @@
+{
+  "name": "app-agenda",
+  "version": "0.1.0",
+  "description": "Aplicativo de Agenda para a Inclusão, Listagem, Edição e Remoção de Contatos.",
+  "author": "Wallison Félix <wallison.felix@gmail.com>",
+  "contributors": [],
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallisonfelix/app-agenda"
+  },
+  "keywords": [
+    "Agenda"
+  ],
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "ejs": "2.3.3",
+    "express": "4.13.3",
+    "pg": "~4.4.3",
+    "pg-hstore": "~2.3.2",
+    "sequelize": "~3.17.3"
+  },
+  "private": false,
+  "subdomain": "APP-Agenda"
+}

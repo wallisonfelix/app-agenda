@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<title>APP Agenda</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript"> 
+		$('#foneNumber').inputmask({
+			mask: '99-9999-9999'
+		});
+	</script>
+</head>
+
+<body style="background-color: #fffffa;">
+	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	  	<div class="navbar-header">
+	      <em class="navbar-brand">Minha Agenda Pessoal</em>
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	    </div>  	   
+	    <div class="collapse navbar-collapse" id="navbar">
+	      <ul class="nav navbar-nav navbar-right">
+	          <li><a href="/listar_contatos"><span class="glyphicon glyphicon-list"></span> Listar Contatos</a></li>
+	          <li><a href="/incluir_contato"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-user"></span> Incluir Contato</a></li>	         
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">	  
+		<div class="row">	    
+			<div id="conteudo" class="col-sm-12">
+		    	
+		    	<form action="<% if(contact.id) { %>/salvarEditarContato<% } else { %>/salvarIncluirContato<% } %>" method="post" enctype="application/x-www-form-urlencoded" role="form" class="form-horizontal" accept-charset="UTF-8">
+				
+					<input id="idContact" name="idContact" type="hidden" value="<%= contact.id %>" />
+
+					<div class="form-group">
+						<label for="name" class="control-label">Nome *</label>				
+						<input id="name" name="name" type="text" value="<%= contact.name %>" class="form-control" required/>						
+					</div>
+					<div class="form-group">
+						<label for="email" class="control-label">Email *</label>
+						<input id="email" name="email" type="email" value="<%= contact.email %>" class="form-control" required/>						
+					</div>
+					<div class="form-group">
+						<label for="foneNumber" class="control-label">Telefone *</label>
+						<input id="foneNumber" name="foneNumber" type="tel" value="<%= contact.fone_number %>" class="form-control" maxlength="10" data-mask="(99) 9999-9999" required/>						
+					</div>
+					<div class="form-group">
+						<input type="submit" name="btnSalvar" class="btn btn-info" value="Salvar"/>
+					</div>
+				</form>
+
+			</div>			
+		</div>
+	</div>
+
+</body>
+
+</html>

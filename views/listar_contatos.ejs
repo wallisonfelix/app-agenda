@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<title>APP Agenda</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://canjs.com/release/latest/can.jquery.js"></script>
+</head>
+
+<body style="background-color: #fffffa;">
+	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	  	<div class="navbar-header">
+	      <em class="navbar-brand">Minha Agenda Pessoal</em>
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	    </div>  	   
+	    <div class="collapse navbar-collapse" id="navbar">
+	      <ul class="nav navbar-nav navbar-right">
+	          <li><a href="/listar_contatos"><span class="glyphicon glyphicon-list"></span> Listar Contatos</a></li>
+	          <li><a href="/incluir_contato"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-user"></span> Incluir Contato</a></li>	         
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">	  
+		<div class="row">
+			<% if(successMessage && successMessage.trim != '') { %>
+				<div id="successMessage" class="col-sm-12">		    	
+					<div class="col-sm-12 alert alert-success">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<%= successMessage %>
+					</div>				
+				</div>
+			<% } %>
+
+			<div id="conteudo" class="col-sm-12">
+		    	
+		    	<h4>Contatos:</h4>
+				<table class="table table-striped table-responsive">
+				    <thead>
+				      	<tr>					      		
+				        	<th class="text-center">Nome</th>
+				        	<th class="text-center">Email</th>
+				        	<th class="text-center">Telefone</th>
+				        	<th class="text-center"></th>
+				      	</tr>
+				    </thead>
+				    <tbody>
+				    	<% if(contacts) {
+				    		for(var i = 0; i < contacts.length; i++) { %>
+				    			<tr>
+				    				<td class="text-center"><%= contacts[i].name %></td>
+				    				<td class="text-center"><%= contacts[i].email %></td>
+				    				<td class="text-center"><%= contacts[i].fone_number %></td>
+				    				<td class="text-center">
+				    					<a href="/editar_contato?idContact=<%=contacts[i].id%>" class="btn btn-link" role="button">
+						        			<span class="glyphicon glyphicon-edit"></span>
+						        		</a>						        	
+						        		<a href="/removerContato?idContact=<%=contacts[i].id%>" class="btn btn-link" role="button">
+						        			<span class="glyphicon glyphicon-remove"></span>
+						        		</button>
+						        	</td>
+				    			</tr>
+				    		<% } 
+				    	} %>
+				    </tbody>
+				</table>
+
+				<% if(!contacts || contacts.length == 0) { %>
+					<div class="alert alert-warning fade in">
+						Nenhum contato cadastrado
+					</div>
+				<% } %>
+
+			</div>			
+		</div>
+	</div>
+
+</body>
+
+</html>
