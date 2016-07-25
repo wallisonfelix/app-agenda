@@ -98,5 +98,5 @@ app.get('/removerContato', function(req, res) {
 	});
 });
 
-//Servidor fica ouvindo a porta 8080.
-server.listen(8080);
+//Servidor fica ouvindo a porta 80.
+server.listen(80);
