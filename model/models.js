@@ -24,7 +24,7 @@ var Contact = db.define('contact', {
 });
 
 //Deleta e Recria o Banco de Dados - Apenas para o ambiente de DESENVOLVIMENTO.
-db.sync( { force: true } );
+//db.sync( { force: true } );
 db.sync();
 
 module.exports.Contact = Contact;
