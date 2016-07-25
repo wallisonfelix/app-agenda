@@ -100,3 +100,4 @@ app.get('/removerContato', function(req, res) {
 
 //Servidor fica ouvindo a porta 80.
 server.listen(80);
+console.log("Servidor escutando na porta 80!");
