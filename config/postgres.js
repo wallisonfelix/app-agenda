@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 //Estabelece a Conexão com o Postgres
 module.exports = new Sequelize('app-agenda', 'postgres', 'postgres', {
-  host: 'localhost',
+  host: 'database',
   port: '5432',
   dialect: 'postgres',
 
