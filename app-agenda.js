@@ -5,7 +5,7 @@ var app = express();
 var http = require('http');
 var server = http.Server(app);
 
-app.set('views', __dirname + '/views');
+app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -99,5 +99,5 @@ app.get('/removerContato', function(req, res) {
 });
 
 //Servidor fica ouvindo a porta 80.
-server.listen(80);
-console.log("Servidor escutando na porta 80!");
+server.listen(8080);
+console.log("Servidor escutando na porta 8080!");
